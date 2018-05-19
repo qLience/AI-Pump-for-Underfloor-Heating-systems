@@ -1,13 +1,12 @@
 # AI pump
 
-This code have been programmed by Christian Blad, Sajuran and Søren Koch aka. Group VT4103A
+This code have been programmed by Christian Blad, Sajuran and Søren Koch aka. Group VT4103A From Aalborg University.
 The reinforcement learning framework is based on the original code from udemy course https://www.udemy.com/artificial-intelligence-az/
-From Aalborg University
 The program controls a pump from Grundfos A/S in a underfloor heating system where room(s) depending on environment
 needs to be a certain reference room temperature where the temperature running through the pipes
 under the floor is regulated and valve to the different circuits is open/closed depending on environment
   
-# The following libraries are needed to run
+# We are running Python v3.5 and the following libraries are needed to run
 * tensorflow or pytorch
 * numpy
 * matplotlib
