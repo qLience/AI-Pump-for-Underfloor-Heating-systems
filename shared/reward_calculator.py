@@ -65,7 +65,7 @@ class RewardCalculator:
             Tmix_UL = 59.9 # Upper limit
         
         # Valve in circuit one is always true when running TL12 and ETL2
-        if self.env_decider == TL12 or self.env_decider == ETL2:
+        if self.env_decider == TL12 or self.env_decider == ETL2  or self.env_decider == SETL2:
             Cn_valves.C1_valve = True
         
         
@@ -146,11 +146,11 @@ class RewardCalculator:
         self.last_distance4 = distance4
         
         # Sum rewards and divide by number of circuits
-        if self.env_decider == TL12 or self.env_decider == ETL2:
+        if self.env_decider == TL12 or self.env_decider == ETL2 or self.env_decider == SETL2:
             last_reward = (last_reward1) / 1
-        elif self.env_decider == TL3 or self.env_decider == ETL3:
+        elif self.env_decider == TL3 or self.env_decider == ETL3 or self.env_decider == SETL3:
             last_reward = (last_reward1 + last_reward2) / 2
-        elif self.env_decider == TL4 or self.env_decider == ETL4:
+        elif self.env_decider == TL4 or self.env_decider == ETL4  or self.env_decider == SETL4:
             last_reward = (last_reward1 + last_reward2 + last_reward3 + last_reward4) / 4
 
         
