@@ -7,9 +7,12 @@ needs to be a certain reference room temperature where the temperature running t
 under the floor is regulated and valve to the different circuits is open/closed depending on environment
   
 # We are running Python v3.5 and the following libraries are needed to run
-* tensorflow or pytorch
+* tensorflow or pytorch CPU
 * numpy
 * matplotlib
+  
+pytorch can be installed by using < conda install -c peterjc123 pytorch > with anaconda
+tensorflow for windows can be installed by using < pip install tensorflow > or < pip install https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.0rc0-cp35-cp35m-win_amd64.whl >
   
 # Optional arguments to run on main.py:  
     -swe    -- (Start Weights and Experience) - Name of Weights to start with, from saves/weigts')
@@ -42,10 +45,20 @@ under the floor is regulated and valve to the different circuits is open/closed 
 
 Note startup requires Tmix which have to be above 20
     
-Forexample, below the user specific specifies that he/she wants tau = 20, and model should be DQN from pytorch with environment model from Test Level 1 or 2.
-  
-python main.py -tau 20 -model torch_dqn -env tl12
-  
-  
-TCP connect receiver and send port by running Simulink model <TestLevel_X_MODEL.slx>. (notice first time starting Simulation can result in 
-no connection to TCP/IP server established by python. Simply just run the script again and start the simulation yet again)
+# Environments to run:
+* SHTL1 - Simulation environment of a one circuit house environment without dynamic properties of a house
+* SHTL2 - Simulation environment of a one circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1)
+* SHTL3 - Simulation environment of a two circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1 and 2)
+* SHTL4 - Simulation environment of a four circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1, 2, 3 and 4)
+* SETL2 - Simulation environment of a one circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3)
+* SETL3 - Simulation environment of a two circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3 and 4)
+* SETL4 - Simulation environment of a four circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 1,2,3 and 4) (Not available  yet!)
+    
+    
+Forexample, below the user specific specifies the user wants tau = 20, and model should be DQN from pytorch with simulation environment model from Test Level 3 of house environment. 
+
+Running source code:
+python main.py -tau 20 -model torch_dqn -env setl3
+
+TCP connect receiver and send port by running Simulink model <XXTLX_TestLevel_X_MODEL.slx>. (notice first time starting Simulation can result in 
+no connection to TCP/IP server established by python due to duration of building model in Simulink, Simply just run the script again and start the simulation again

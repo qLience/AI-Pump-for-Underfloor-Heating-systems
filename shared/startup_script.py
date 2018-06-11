@@ -6,7 +6,7 @@
 import time
 
 # Environments
-TL12, TL3, TL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4 = ("tl12", "tl3", "tl4", "setl2", "setl3", "setl4", "etl2", "etl3", "etl4")
+SHTL12, SHTL3, SHTL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4 = ("shtl12", "shtl3", "shtl4", "setl2", "setl3", "setl4", "etl2", "etl3", "etl4")
 
 
 class StartUp():
@@ -49,18 +49,20 @@ class StartUp():
                
                
             # Sum rewards and divide by number of circuits
-            if self.env_decider == TL12 or self.env_decider == ETL2:
+            if self.env_decider == SHTL12 or self.env_decider == SETL2 or self.env_decider == ETL2:
                 # Close valves depending on they have achieved reference temperatures
                 if self.T1 > self.params.goalT1:
                     self.WhileHolder = False # Continue to DRL framework
                 else:
                     self.env.sendAction(self.startTmix) # Satisfy timeout in simulink by keep sending data
 
-            elif self.env_decider == TL3 or self.env_decider == ETL3:
+            elif self.env_decider == SHTL3 or self.env_decider == SETL3 or self.env_decider == ETL3:
                 # Close valves depending on they have achieved reference temperatures
                 if self.T1 > self.params.goalT1 and self.T2 > self.params.goalT2:
                     self.env.sendAction(4) # Open both valves
                     self.WhileHolder = False # Continue to DRL framework
+                elif self.T1 < self.params.goalT1 and self.T2 < self.params.goalT2:
+                    self.env.sendAction(4) # Open both valves
                 elif self.T1 > self.params.goalT1:
                     self.env.sendAction(6) # Close valve 1 and open valve 2
                 elif self.T2 > self.params.goalT2:
@@ -68,11 +70,13 @@ class StartUp():
                 else:
                     self.env.sendAction(self.startTmix) # Satisfy timeout in simulink by keep sending data
                     
-            elif self.env_decider == TL4 or self.env_decider == ETL4:
+            elif self.env_decider == SHTL4 or self.env_decider == SETL4 or self.env_decider == ETL4:
                 # Close valves depending on they have achieved reference temperatures
                 if self.T1 > self.params.goalT1 and self.T2 > self.params.goalT2 and self.T3 > self.params.goalT3 and self.T4 > self.params.goalT4:
                     self.env.sendAction(4) # Open all valves
                     self.WhileHolder = False # Continue to DRL framework
+                elif self.T1 > self.params.goalT1 and self.T2 > self.params.goalT2 and self.T3 > self.params.goalT3 and self.T4 > self.params.goalT4:
+                    self.env.sendAction(4) # Open all valves
                 elif self.T2 > self.params.goalT2 and self.T3 > self.params.goalT3 and self.T4 > self.params.goalT4:
                     self.env.sendAction(5) #1000
                 elif self.T1 > self.params.goalT1 and self.T3 > self.params.goalT3 and self.T4 > self.params.goalT4:

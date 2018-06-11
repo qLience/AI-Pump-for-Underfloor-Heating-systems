@@ -8,6 +8,7 @@ import random # random samples from different batches (experience replay)
 import os # For loading and saving brain
 import torch
 import math
+import pickle
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim # for using stochastic gradient descent
@@ -209,14 +210,14 @@ class DQN():
     def save_experience(self, path, name):
         """Saving experience from experience replay to the path 'saves/experience' with the specified name specified in parse argument in main"""
         with open(path + '/' + name, 'wb') as fp:
-            pickle.dump(self.buffer, fp)
+            pickle.dump(self.memory, fp)
             
     def load_experience(self, path, name):
         """Loading experience from the path 'saves/experience' with the specified name specified in parse argument in main to experience replay"""
         if os.path.isfile(os.path.join(path, str(name))):
             print("=> loading experience... ")
             with open (path + '/' + name, 'rb') as fp:
-                self.buffer = pickle.load(fp)
+                self.memory = pickle.load(fp)
             print("Loading is complete !")
         else:
             print("no experience found...")

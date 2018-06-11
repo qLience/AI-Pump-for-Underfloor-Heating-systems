@@ -8,8 +8,7 @@ import struct
 import array
 
 # Environments
-TL12, TL3, TL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4 = ("tl12", "tl3", "tl4", "setl2", "setl3", "setl4", "etl2", "etl3", "etl4")
-
+SHTL12, SHTL3, SHTL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4 = ("shtl12", "shtl3", "shtl4", "setl2", "setl3", "setl4", "etl2", "etl3", "etl4")
 
 class environment:
 	def __init__(self, env_decider):
@@ -87,7 +86,7 @@ class environment:
         # Receive state formed as binary array
 		data = self.recvConn.recv(2048);
 		# decode state
-		if self.env_decider == TL12 or self.env_decider == TL3 or self.env_decider == TL4 or self.env_decider == SETL2 or self.env_decider == self.SETL3 or self.env_decider == SETL4:
+		if self.env_decider == SHTL12 or self.env_decider == SHTL3 or self.env_decider == SHTL4 or self.env_decider == SETL2 or self.env_decider == SETL3 or self.env_decider == SETL4:
 			return self.decodeSimulinkState(data)
 		else:
 			return self.decodeMatlabState(data)

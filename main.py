@@ -24,40 +24,40 @@ SOFTMAX, EPS = ("softmax","eps")
 TORCH_DQN, TORCH_DQNLSTM, TORCH_DQNET, TF_DQNET = ("torch_dqn","torch_dqnlstm", "torch_dqnet", "tf_dqnet")
 
 # Environments
-TL12, TL3, TL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4 = ("tl12", "tl3", "tl4", "setl2", "setl3", "setl4", "etl2", "etl3", "etl4")
+SHTL12, SHTL3, SHTL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4 = ("shtl12", "shtl3", "shtl4", "setl2", "setl3", "setl4", "etl2", "etl3", "etl4")
 
 # Hidden layers options
 ONE, TWO = ("1", "2")
 
 parser = argparse.ArgumentParser(prog='Pump AI')
 # Optional
-parser.add_argument('-swe', help='(Start Weights and Experience) - Name of Weights to start with, from saves/weigts')
-parser.add_argument('-ewe', help='(End Weights and Experience) - Name of Weights which is saved in saves/weights and name of brain plot which is saved in saves/plots (default is <default_name>)')
-parser.add_argument('-ers', help='(experience replay sample size) - how much to sample when learning, Note: only for tf_dqnet (160 is default)')
-parser.add_argument('-erb', help='(experience replaybatch size) - how much to use when learning (default 300)')
-parser.add_argument('-erc', help='(experience replay capacity) - size of experience replay memory (default 100000)')
-parser.add_argument('-lr', type=int, help='(Learning rate) - (0.001 is default')
-parser.add_argument('-gamma', type=int, help='(Discount factor) - (0.9 is default')
-parser.add_argument('-tau', type=int, help='(Temperature) - For Softmax function, note: when choosing torch_dqnet tau should be 1-10 (50 is default')
+parser.add_argument('-swe', help='(Start Weights and Experience) - Name of start weights loaded from directory <saves/weigts> and experience loaded from directory <saves/experience>')
+parser.add_argument('-ewe', help='(End Weights and Experience) - Saving weights with specified name in directory <saves/weigts>, experience with specified name in directory <saves/experience> and training curve with specified name in directory <saves/plots> (default name is <default_name>)')
+parser.add_argument('-ers', type=int, help='(experience replay sample size) - how much to sample when learning, Note: only for tf_dqnet (160 is default)')
+parser.add_argument('-erb', type=int, help='(experience replay batch size) - how much to use when learning (default 300)')
+parser.add_argument('-erc', type=int, help='(experience replay capacity) - size of experience replay memory (default 100000)')
+parser.add_argument('-lr', type=int, help='(Learning rate) - (0.001 is default)')
+parser.add_argument('-gamma', type=int, help='(Discount factor) - (0.9 is default)')
+parser.add_argument('-tau', type=int, help='(Temperature) - For Softmax function, note: when choosing torch_dqnet tau should be 1-10 (50 is default)')
 parser.add_argument('-es', type=int, help='(Epsilon start) - For epsilon Greedy start value, meaning random action is taken 90%% of the time (0.9 is default)')
 parser.add_argument('-ee', type=int, help='(Epsilon end) - For epsilon Greedy end value, meaning random action is taken 5%% of the time after decay(0.05 is default)')
-parser.add_argument('-ed', type=int, help='(Epsilon decay) - For epsilon Greedy, by default decay from 0.9 to 0.1 over 2000 steps (2000 is default')
-parser.add_argument('-acs', help='(action selector) - (softmax is default) Note: epsilon greedy is not made for eligibility trace', choices=[SOFTMAX, EPS])
+parser.add_argument('-ed', type=int, help='(Epsilon decay) - For epsilon Greedy, by default decay from 0.9 to 0.1 over 2000 steps (2000 is default)')
+parser.add_argument('-acs', help='(action selector) - (softmax is default) Note: epsilon greedy is not made for eligibility trace', choices=[EPS])
 parser.add_argument('-en', type=int, help='(eligibility trace steps n) - How many steps should eligiblity trace take (1 is default, is simple one step Q learning)')
-parser.add_argument('-hn', type=int, help='(hidden neurons) - For Q-network (60 is default for hidden layers')
-parser.add_argument('-hl', help='(hidden layer(s)) - For Q-network (1 is default)', choices=[ONE, TWO])
-parser.add_argument('-t1', type=int, help='Reference temperature in circuit 1 regarding reward policy, go to simulink model if another reference temperature is rewarding regarding speed control (default 22)')
-parser.add_argument('-t2', type=int, help='Reference temperature in circuit 2 regarding reward policy, go to simulink model if another reference temperature is rewarding regarding speed control (default 22)')
-parser.add_argument('-t3', type=int, help='Reference temperature in circuit 3 regarding reward policy, go to simulink model if another reference temperature is rewarding regarding speed control (default 22)')
-parser.add_argument('-t4', type=int, help='Reference temperature in circuit 4 regarding reward policy, go to simulink model if another reference temperature is rewarding regarding speed control (default 22)')
+parser.add_argument('-hn', type=int, help='(hidden neurons) - For Q-network (60 is default for hidden layers)')
+parser.add_argument('-hl', help='(hidden layer(s) - For Q-network (1 is default)', choices=[TWO])
+parser.add_argument('-t1', type=int, help='Room reference temperature in circuit 1 regarding reward policy, go to simulink model if another reference temperature is rewarding regarding speed control (default 22)')
+parser.add_argument('-t2', type=int, help='Room reference temperature in circuit 2 regarding reward policy, go to simulink model if another reference temperature is rewarding regarding speed control (default 22)')
+parser.add_argument('-t3', type=int, help='Room reference temperature in circuit 3 regarding reward policy, go to simulink model if another reference temperature is rewarding regarding speed control (default 22)')
+parser.add_argument('-t4', type=int, help='Room reference temperature in circuit 4 regarding reward policy, go to simulink model if another reference temperature is rewarding regarding speed control (default 22)')
 parser.add_argument('-lm', help='(Learning Mode) - Q-network will be updated if active (Learning mode is active by default)', choices=[NO])
 parser.add_argument('-startup', help='This set Tmix to wanted and all valves if there is any and stops flow to circuits when reference temperatures is met before proceeding with DRL algorithm (No, not active by default)', choices=[YES])
 parser.add_argument('-Tmix', type=int, help='Start mixing temperature is required when using start up')
 
 # Required
 requiredNamed = parser.add_argument_group('required arguments')
-requiredNamed.add_argument('-model', help='torch_dqn, torch_dqnlstm, torch_dqnet is in pytorch and tf_dqnet is in tensorflow (dqn = deep q-network, eli = eligibility_trace)', choices=[TORCH_DQN, TORCH_DQNLSTM, TORCH_DQNET, TF_DQNET], required=True)
-requiredNamed.add_argument('-env', help='S=Simulation, E=Experiment, T=Test, L=Level, N=level grade, TL for normal house and everything with E is regarding experimental setup ', choices=[TL12, TL3, TL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4], required=True)
+requiredNamed.add_argument('-model', help='Selection of deep reinforcement learning model. torch = pytorch framework and tf = tensorflow framework. dqn = deep q-network, dqnlstm = dqn + long short term memory layer, dqnet = dqn + eligibility trace', choices=[TORCH_DQN, TORCH_DQNLSTM, TORCH_DQNET, TF_DQNET], required=True)
+requiredNamed.add_argument('-env', help='Environment agent is interacting with. S=Simulation model, H=House, E=Experimental setup, T=Test, L=Level, N=level grade, SHTL for simulation of house and everything with E is regarding experimental setup', choices=[SHTL12, SHTL3, SHTL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4], required=True)
 args = parser.parse_args()
     
 if args.startup and args.Tmix is None:
@@ -128,13 +128,13 @@ else:
 # Environment decider
 env_decider = args.env
 # Choose input and output size of Qnetwork
-if env_decider == TL12 or env_decider == SETL2 or env_decider == ETL2:
+if env_decider == SHTL12 or env_decider == SETL2 or env_decider == ETL2:
     params.input_size = 4
     params.action_size = 3
-elif env_decider == TL3 or env_decider == SETL3 or env_decider == ETL3:
+elif env_decider == SHTL3 or env_decider == SETL3 or env_decider == ETL3:
     params.input_size = 9
     params.action_size = 7
-elif env_decider == TL4 or env_decider == SETL4 or env_decider == ETL4:
+elif env_decider == SHTL4 or env_decider == SETL4 or env_decider == ETL4:
     params.input_size = 17
     params.action_size = 19
 
@@ -219,7 +219,7 @@ elif args.model == TORCH_DQNET:
         eligibility_memory.load_experience(os.path.abspath(SAVES_EXPERIENCE), args.swe)
 
 # Have to send the first communication to Simulink in order to start the simulation
-if env_decider == TL12 or env_decider == TL3 or env_decider == TL4 or env_decider == SETL2 or env_decider == SETL3 or env_decider == SETL4:
+if env_decider == SHTL12 or env_decider == SHTL3 or env_decider == SHTL4 or env_decider == SETL2 or env_decider == SETL3 or env_decider == SETL4:
     env.sendAction(0)
     save_iterator = 500 # Save every 500 times to have less computational with simulink
 else:

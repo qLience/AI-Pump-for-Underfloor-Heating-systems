@@ -102,8 +102,7 @@ class ReplayMemory(object):
     # pushing transitions into memory with append
     #event=transition
     def push(self, event):
-    """Function is pushing experience into a list and make sure that list does
-    not exceed experience replay capacity"""
+        """Function is pushing experience into a list and make sure that list does not exceed experience replay capacity"""
         self.memory.append(event)
         if len(self.memory) > self.capacity: #memory only contain 100 events
             del self.memory[0] #delete first transition from memory if there is more that 100

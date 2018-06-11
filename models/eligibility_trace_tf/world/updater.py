@@ -1,3 +1,5 @@
+import time
+
 from collections import deque
 
 from models.eligibility_trace_tf.world.memory.n_step_replay_memory import NStepReplayMemory, Transition, NStepTransition
@@ -16,6 +18,7 @@ class Updater:
         self.step = 0
         self.state = []
         self.env_values = []
+        self.action = 0
 
     def update(self):
         # Sleep in order to make sure Simulink and Python can have a solid TCP/IP communication
@@ -26,20 +29,20 @@ class Updater:
             #Receive values from Simulink environment
             self.env_values = self.env.receiveState()
             
-            self.state = self.ai_input_provider.calculate_ai_input(self.env_values)
+            self.state = self.ai_input_provider.calculate_ai_input(self.env_values, self.action)
             self.step += 1
 
         # Select action
         action = self.ai.get_next_action(self.state)
         print ('action is ', action + 1)
         print('State inputs to brain')
-        print(state)
+        print(self.state)
         
         # Send action to environment
         self.env.sendAction(action + 1)
         
         # Calculate reward from environment values
-        reward = self.reward_calculator.calculate_reward(self.env_values)
+        reward = self.reward_calculator.calculate_reward(self.env_values, self.ai_input_provider)
         print('reward is ', reward)
          
         # save to memory
@@ -51,11 +54,13 @@ class Updater:
         
         # Convert environment values to state inputs
         self.env_values = self.env.receiveState()
-        next_state = self.ai_input_provider.calculate_ai_input(self.env_values)
+        next_state = self.ai_input_provider.calculate_ai_input(self.env_values, self.action)
         self.last_transitions.append(Transition(self.state, action, reward, next_state))
 		# Update
         self.state = next_state
 		
+        #update action
+        self.action = action + 1
 
         if len(self.last_transitions) == self.params.n_steps:
             n_step_transition = NStepTransition(self.last_transitions)
