@@ -1,10 +1,12 @@
-# AI pump
+# AI for Underfloor Heating Systems
 
 This code have been programmed by Christian Blad, Sajuran and Søren Koch aka. Group VT4103A From Aalborg University.
 The reinforcement learning framework is based on the original code from udemy course https://www.udemy.com/artificial-intelligence-az/
-The program controls a pump from Grundfos A/S in a underfloor heating system where room(s) depending on environment
-needs to be a certain reference room temperature where the temperature running through the pipes
-under the floor is regulated and valve to the different circuits is open/closed depending on environment
+The program controls a underfloor heating system where room(s) depending on environment
+needs to be a certain reference room temperature. The agent will minimum have the ability to control the 
+temperature of the water flowing out of the mixing unit and maximum have the ability to control the mixing unit and the on/off
+valves depending on the present test level
+
   
 # We are running Python v3.5 and the following libraries are needed to run
 * tensorflow or pytorch CPU
