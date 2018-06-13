@@ -1,6 +1,6 @@
 # AI for Underfloor Heating Systems
 
-This code have been programmed by Christian Blad, Sajuran and Søren Koch aka. Group VT4103A From Aalborg University.
+This code have been programmed by Christian Blad, Sajuran Ganeswarathas and Søren Koch aka. group VT4210A From Aalborg University.
 The reinforcement learning framework is based on the original code from udemy course https://www.udemy.com/artificial-intelligence-az/
 The program controls a underfloor heating system where room(s) depending on environment
 needs to be a certain reference room temperature. The agent will minimum have the ability to control the 
