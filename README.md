@@ -10,7 +10,7 @@ valves depending on the present test level
 ## Table of Contents (Optional)
 
 - [Installation](#installation)
-- [How To Run](#how~to~run)
+- [How To Run](#how%to%run)
 - [Contributing](#contributing)
 - [Team](#team)
 - [FAQ](#faq)
