@@ -46,7 +46,7 @@ Clone this repo to your local machine using `git clone https://github.com/qLienc
 
 ## How To Run
 
-### Optional arguments to run on main.py:  
+### Optional arguments:  
     -swe    -- (Start Weights and Experience) - Name of Weights to start with, from saves/weigts')
     -ewe    -- (End Weights and Experience) - Name of Weights which is saved in saves/weights and name of brain plot which is saved in saves/plots (default is <default_name>)')
     -ers    -- (experience replay sample size) - how much to sample when learning, Note: only for tf_dqnet (160 is default)')
@@ -71,13 +71,13 @@ Clone this repo to your local machine using `git clone https://github.com/qLienc
     -Tmix   -- Start mixing temperature is required when using start up')
     -model  -- Model type - DQN is with tensorflow and DQN LSTM is pytorch and DQNELI is with tensorflow (DQN is default)', choices=[DQN, DQNLSTM, DQNELI])  
   
-### Required arguments to run on main.py:  
+### Required arguments:  
     -model  -- 'torch_dqn, torch_dqnlstm, torch_dqnet is in pytorch and tf_dqnet is in tensorflow (dqn = deep q-network, eli = eligibility_trace)', choices=[TORCH_DQN, TORCH_DQNLSTM, TORCH_DQNET, TF_DQNET], required=True)
     -env    -- 'S=Simulation, E=Experiment, T=Test, L=Level, N=level grade, TL for normal house and everything with E is regarding experimental setup ', choices=[TL12, TL3, TL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4], required=True)
 
     Note startup requires Tmix which have to be above 20
     
-### Environments to run:
+### Environments:
 * SHTL1 - Simulation environment of a one circuit house environment without dynamic properties of a house
 * SHTL2 - Simulation environment of a one circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1)
 * SHTL3 - Simulation environment of a two circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1 and 2)
@@ -91,14 +91,10 @@ Clone this repo to your local machine using `git clone https://github.com/qLienc
 Below the user specific specifies the user wants tau = 20, and model should be DQN from pytorch with simulation environment model from Test Level 3 of house environment. 
 
 Running source code:
-python main.py -tau 20 -model torch_dqn -env setl3
+`python main.py -tau 20 -model torch_dqn -env setl3`
 
 TCP connect receiver and send port by running Simulink model <XXTLX_TestLevel_X_MODEL.slx>. (notice first time starting Simulation can result in 
 no connection to TCP/IP server established by python due to duration of building model in Simulink, Simply just run the script again and start the simulation again.
-
-
-
-
 
 
 
