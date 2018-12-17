@@ -23,15 +23,6 @@ behaviour to avoid oscillating room temperatures. Furthermore will reinforcement
 also be a control platform where it will be possible to add multiple inputs such as weather
 information, sunlight etc. and customise the controller to the client.
 
-
-
-This code have been programmed by Christian Blad, Sajuran Ganeswarathas and Søren Koch aka. group VT4210A From Aalborg University.
-The reinforcement learning framework is based on the original code from udemy course https://www.udemy.com/artificial-intelligence-az/
-The program controls a underfloor heating system where room(s) depending on environment
-needs to be a certain reference room temperature. The agent will minimum have the ability to control the 
-temperature of the water flowing out of the mixing unit and maximum have the ability to control the mixing unit and the on/off
-valves depending on the present test level
-
 ## Table of Contents (Optional)
 - [Project](#project)
 - [Installation](#installation)
@@ -42,11 +33,20 @@ valves depending on the present test level
 - [License](#license)
 
 ## Project
-
+The AI controls a underfloor heating system where room(s) depending on environment
+needs to be a certain reference room temperature. The agent will minimum have the ability to control the 
+temperature of the water flowing out of the mixing unit and maximum have the ability to control the mixing unit and the on/off
+valves depending on the present test level
 
 ### Architecture
 
+
+***https://www.dropbox.com/s/a1hdh6vlcoknwsb/software_achitecture.pdf?dl=0***
+
+
 ### Environment
+
+
 
 ### AI
 
