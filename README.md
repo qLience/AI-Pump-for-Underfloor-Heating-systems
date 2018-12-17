@@ -41,7 +41,7 @@ valves depending on the present test level
 ### Architecture
 
 
-[embed]https://www.dropbox.com/s/a1hdh6vlcoknwsb/software_achitecture.pdf?dl=0[/embed]
+![Architecture of Q-network](https://www.dropbox.com/s/a1hdh6vlcoknwsb/software_achitecture.pdf?dl=0)
 
 
 ### Environment
