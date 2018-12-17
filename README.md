@@ -40,16 +40,12 @@ valves depending on the present test level
 
 ### Architecture
 
-<iframe src="https://drive.google.com/open?id=1tgomOs_bgeA-Jir1IK-zJLfbUFvTk-W0&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
 
-<object data="https://drive.google.com/open?id=1tgomOs_bgeA-Jir1IK-zJLfbUFvTk-W0" type="application/pdf" width="750px" height="750px">
-    <embed src="https://drive.google.com/open?id=1tgomOs_bgeA-Jir1IK-zJLfbUFvTk-W0">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
+<object data="https://www.dropbox.com/s/a1hdh6vlcoknwsb/software_achitecture.pdf?embedded=true" type="application/pdf" width="700px" height="700px">
+    <embed src="https://www.dropbox.com/s/a1hdh6vlcoknwsb/software_achitecture.pdf?embedded=true">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://www.dropbox.com/s/a1hdh6vlcoknwsb/software_achitecture.pdf?dl=0">Download PDF</a>.</p>
     </embed>
 </object>
-
-<embed src="https://drive.google.com/open?id=1tgomOs_bgeA-Jir1IK-zJLfbUFvTk-W0
-viewer?embedded=true&url=https://drive.google.com/open?id=1tgomOs_bgeA-Jir1IK-zJLfbUFvTk-W0" width="500" height="375">
 
 ### Environment
 
