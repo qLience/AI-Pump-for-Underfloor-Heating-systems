@@ -1,4 +1,4 @@
-# AI for Underfloor Heating Systems
+# AI for Underfloor Heating Systems (readme in progress!)
 
 There are several different heating and cooling system to accommodate clime control in
 houses, one of those are the underfloor heating system. The underfloor heating system is
@@ -38,20 +38,46 @@ needs to be a certain reference room temperature. The agent will minimum have th
 temperature of the water flowing out of the mixing unit and maximum have the ability to control the mixing unit and the on/off
 valves depending on the present test level
 
-### Architecture
-
-
-<object data="https://www.dropbox.com/s/a1hdh6vlcoknwsb/software_achitecture.pdf?embedded=true" type="application/pdf" width="700px" height="700px">
-    <embed src="https://www.dropbox.com/s/a1hdh6vlcoknwsb/software_achitecture.pdf?embedded=true">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://www.dropbox.com/s/a1hdh6vlcoknwsb/software_achitecture.pdf?dl=0">Download PDF</a>.</p>
-    </embed>
-</object>
 
 ### Environment
+The function of a underfloor heating system is to heat a number of zones to their given reference temperature. A
+diagram of a conventional underfloor heating system is shown in Figure 2.1.
+
+Billede af conventional
+
+
+
 
 
 
 ### AI
+From the command prompt the user can specify size of input (depending on the chosen environment), hidden, and output layer
+and choose to run with one or two hidden layers. Architecture of the Q-network
+is shown in Figure 6.4
+
+Billede Q-network
+
+Starting from the input layer it can be seen that room temperature T, orientation,
+differential \Delta, valve (open/close) and mixing temperature Tmix is used depending on the
+test level. All inputs are standardised before inputting them to the q-network to insure faster convergence.
+Test Level 1 and 2 only control Tmix and therefore do not have any valve information nor
+multiple room temperatures, orientation, and differential as indicated in the black box top
+right in Figure 6.4. Test Level 1 and 2 therefore have four inputs, Test Level 3 has nine
+inputs and Test Level 4 has 17 inputs to the hidden layer(s).
+
+
+### Architecture
+All interaction internally and externally regarding the environment (client), server
+(Python) and the deep reinforcement learning framework in Python is shown Figure 6.5.
+
+Billede architecture
+
+Here it can be seen that that the environment transmit environment of relevant
+temperatures through a TCP/IP connection to the server in Python. The server transmit
+the environment data to the DRL framework in Python which returns an action from the
+action selector to the environment.
+
+
 
 
 
