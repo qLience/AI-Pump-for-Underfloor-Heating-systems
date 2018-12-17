@@ -17,11 +17,26 @@ valves depending on the present test level
 - [Support](#support)
 - [License](#license)
 
+
+## Installation
+
+### Packages
+
+
+### Clone
+- Clone this repo to your local machine using `https://github.com/qLience/AI-Pump-for-Underfloor-Heating-systems`
+
+
+
+
+
 ## Team
+This project were a collaboration between Aalborg University and Grundfos.
+
 * [Christian Blad](https://www.linkedin.com/in/christian-blad-98b18b119/) - Ph.D in Control Engineering
 * [Carsten Skovmose Kallesø](https://www.linkedin.com/in/carsten-skovmose-kalles%C3%B8e-97b5865/) - Control Engineer & Industry Professor
 * [Sajuran Ganeswarathas](https://www.linkedin.com/in/sganes94/) - Manufacturing Engineer
-* [Simon Bøgh Jensen](https://www.linkedin.com/in/roboticsdk/) - Associate Professor
+* [Simon Bøgh Jensen](https://www.linkedin.com/in/roboticsdk/) - Associate Professor in Robotics
 * [Søren Koch](https://www.linkedin.com/in/skoch91/) - Manufacturing Engineer
 
 
