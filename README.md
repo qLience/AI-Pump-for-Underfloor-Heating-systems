@@ -7,6 +7,27 @@ needs to be a certain reference room temperature. The agent will minimum have th
 temperature of the water flowing out of the mixing unit and maximum have the ability to control the mixing unit and the on/off
 valves depending on the present test level
 
+## Table of Contents (Optional)
+
+- [Installation](#installation)
+- [Features](#features)
+- [Contributing](#contributing)
+- [Team](#team)
+- [FAQ](#faq)
+- [Support](#support)
+- [License](#license)
+
+## Team
+* [Christian Blad](https://www.linkedin.com/in/christian-blad-98b18b119/)
+* [Carsten Skovmose Kallesø](https://www.linkedin.com/in/carsten-skovmose-kalles%C3%B8e-97b5865/)
+* [Sajuran Ganeswarathas](https://www.linkedin.com/in/sganes94/)
+* [Simon Bøgh Jensen](https://www.linkedin.com/in/roboticsdk/)
+* [Søren Koch](https://www.linkedin.com/in/skoch91/)
+
+
+
+
+
   
 # We are running Python v3.5 and the following libraries are needed to run
 * tensorflow or pytorch CPU
