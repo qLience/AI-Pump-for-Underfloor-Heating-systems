@@ -19,12 +19,25 @@ valves depending on the present test level
 
 
 ## Installation
-
 ### Packages
+#### For AI
+* Python v3.5
+* PyTorch v0.3.1 on CPU
+* TensorFlow v0.12 on CPU
+* Numpy
+* Matplotlib
+
+pytorch can be installed by using < 'conda install -c peterjc123 pytorch' > with anaconda
+
+tensorflow for windows can be installed by using < 'pip install tensorflow' > or < 'pip install https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.0rc0-cp35-cp35m-win_amd64.whl' >
+
+#### For Simulation Models for House Environments
+* Matlab R2017b
+* Simulink 
 
 
 ### Clone
-- Clone this repo to your local machine using `https://github.com/qLience/AI-Pump-for-Underfloor-Heating-systems`
+Clone this repo to your local machine using `git clone https://github.com/qLience/AI-Pump-for-Underfloor-Heating-systems`
 
 
 
@@ -40,14 +53,8 @@ This project were a collaboration between Aalborg University and Grundfos.
 * [Søren Koch](https://www.linkedin.com/in/skoch91/) - Manufacturing Engineer
 
 
-
-
-
   
-# We are running Python v3.5 and the following libraries are needed to run
-* tensorflow or pytorch CPU
-* numpy
-* matplotlib
+
   
 pytorch can be installed by using < conda install -c peterjc123 pytorch > with anaconda
 tensorflow for windows can be installed by using < pip install tensorflow > or < pip install https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.0rc0-cp35-cp35m-win_amd64.whl >
