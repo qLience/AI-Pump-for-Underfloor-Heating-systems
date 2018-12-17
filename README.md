@@ -27,9 +27,9 @@ valves depending on the present test level
 * Numpy
 * Matplotlib
 
-pytorch can be installed by using < 'conda install -c peterjc123 pytorch' > with anaconda
+pytorch can be installed by using < `conda install -c peterjc123 pytorch` > with anaconda
 
-tensorflow for windows can be installed by using < 'pip install tensorflow' > or < 'pip install https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.0rc0-cp35-cp35m-win_amd64.whl' >
+tensorflow for windows can be installed by using < `pip install tensorflow` > or < `pip install https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.0rc0-cp35-cp35m-win_amd64.whl` >
 
 #### For Simulation Models for House Environments
 * Matlab R2017b
@@ -53,12 +53,6 @@ This project were a collaboration between Aalborg University and Grundfos.
 * [Søren Koch](https://www.linkedin.com/in/skoch91/) - Manufacturing Engineer
 
 
-  
-
-  
-pytorch can be installed by using < conda install -c peterjc123 pytorch > with anaconda
-tensorflow for windows can be installed by using < pip install tensorflow > or < pip install https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.0rc0-cp35-cp35m-win_amd64.whl >
-  
 # Optional arguments to run on main.py:  
     -swe    -- (Start Weights and Experience) - Name of Weights to start with, from saves/weigts')
     -ewe    -- (End Weights and Experience) - Name of Weights which is saved in saves/weights and name of brain plot which is saved in saves/plots (default is <default_name>)')
