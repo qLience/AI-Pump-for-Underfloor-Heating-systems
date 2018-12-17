@@ -1,5 +1,30 @@
 # AI for Underfloor Heating Systems
 
+There are several different heating and cooling system to accommodate clime control in
+houses, one of those are the underfloor heating system. The underfloor heating system is
+as the name suggest a heating system that heat the floors in a house. The floors are heated
+by hot water flowing through hoses within the floor, and the temperature of the room is
+controlled by on/off valves controlling the flow through the hoses.
+These underfloor heating systems have slow dynamics due to the fact that the heat must
+be transferred from the water to the floor, and from the floor to the room. It can be
+feasible to design controllers for larger buildings so that it can compensate for the slow
+dynamics, and thereby reduce oscillating room temperatures. To design these controllers,
+an extensive knowledge about the building is required. It is therefore not feasible to
+design these controllers for every normal household due to every household have unique
+dynamic properties and locations. A normal household uses threshold controllers with a
+hysteria control. This can result in oscillating room temperatures. Furthermore, are the
+room temperatures often only controlled by the flow and not by both the flow and the
+temperature water flowing through the hoses.
+
+
+The benefit of using reinforcement learning would be that extensive knowledge about the
+building would not be needed, because the idea is that the controller would learn the ideal
+behaviour to avoid oscillating room temperatures. Furthermore will reinforcement learning
+also be a control platform where it will be possible to add multiple inputs such as weather
+information, sunlight etc. and customise the controller to the client.
+
+
+
 This code have been programmed by Christian Blad, Sajuran Ganeswarathas and Søren Koch aka. group VT4210A From Aalborg University.
 The reinforcement learning framework is based on the original code from udemy course https://www.udemy.com/artificial-intelligence-az/
 The program controls a underfloor heating system where room(s) depending on environment
@@ -8,14 +33,23 @@ temperature of the water flowing out of the mixing unit and maximum have the abi
 valves depending on the present test level
 
 ## Table of Contents (Optional)
-
+- [Project](#project)
 - [Installation](#installation)
-- [How To Run](#how%to%run)
-- [Contributing](#contributing)
+- [How To Run](#how/to/run)
 - [Team](#team)
 - [FAQ](#faq)
 - [Support](#support)
 - [License](#license)
+
+## Project
+
+
+### Architecture
+
+### Environment
+
+### AI
+
 
 
 ## Installation
@@ -38,9 +72,6 @@ tensorflow for windows can be installed by using < `pip install tensorflow` > or
 
 ### Clone
 Clone this repo to your local machine using `git clone https://github.com/qLience/AI-Pump-for-Underfloor-Heating-systems`
-
-
-
 
 
 
@@ -78,10 +109,16 @@ Clone this repo to your local machine using `git clone https://github.com/qLienc
     Note startup requires Tmix which have to be above 20
     
 ### Environments:
+
+#### House Environment
+These environments is based on charistica of a normal house.
 * SHTL1 - Simulation environment of a one circuit house environment without dynamic properties of a house
 * SHTL2 - Simulation environment of a one circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1)
 * SHTL3 - Simulation environment of a two circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1 and 2)
 * SHTL4 - Simulation environment of a four circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1, 2, 3 and 4)
+
+### Experimental Setup of House
+These environment is based on a parameter estimation of a experimental setup.
 * SETL2 - Simulation environment of a one circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3)
 * SETL3 - Simulation environment of a two circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3 and 4)
 * SETL4 - Simulation environment of a four circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 1,2,3 and 4) (Not available  yet!)
@@ -97,12 +134,11 @@ TCP connect receiver and send port by running Simulink model <XXTLX_TestLevel_X_
 no connection to TCP/IP server established by python due to duration of building model in Simulink, Simply just run the script again and start the simulation again.
 
 
-
 ## Team
 This project were a collaboration between Aalborg University and Grundfos.
 
-* [Christian Blad](https://www.linkedin.com/in/christian-blad-98b18b119/) - Ph.D in Control Engineering
 * [Carsten Skovmose Kallesø](https://www.linkedin.com/in/carsten-skovmose-kalles%C3%B8e-97b5865/) - Control Engineer & Industry Professor
+* [Christian Blad](https://www.linkedin.com/in/christian-blad-98b18b119/) - Ph.D in Control Engineering
 * [Sajuran Ganeswarathas](https://www.linkedin.com/in/sganes94/) - Manufacturing Engineer
 * [Simon Bøgh Jensen](https://www.linkedin.com/in/roboticsdk/) - Associate Professor in Robotics
 * [Søren Koch](https://www.linkedin.com/in/skoch91/) - Manufacturing Engineer
