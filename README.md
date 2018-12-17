@@ -18,11 +18,11 @@ valves depending on the present test level
 - [License](#license)
 
 ## Team
-* [Christian Blad](https://www.linkedin.com/in/christian-blad-98b18b119/)
-* [Carsten Skovmose Kallesø](https://www.linkedin.com/in/carsten-skovmose-kalles%C3%B8e-97b5865/)
-* [Sajuran Ganeswarathas](https://www.linkedin.com/in/sganes94/)
-* [Simon Bøgh Jensen](https://www.linkedin.com/in/roboticsdk/)
-* [Søren Koch](https://www.linkedin.com/in/skoch91/)
+* [Christian Blad](https://www.linkedin.com/in/christian-blad-98b18b119/) - Ph.D in Control Engineering
+* [Carsten Skovmose Kallesø](https://www.linkedin.com/in/carsten-skovmose-kalles%C3%B8e-97b5865/) - Control Engineer & Industry Professor
+* [Sajuran Ganeswarathas](https://www.linkedin.com/in/sganes94/) - Manufacturing Engineer
+* [Simon Bøgh Jensen](https://www.linkedin.com/in/roboticsdk/) - Associate Professor
+* [Søren Koch](https://www.linkedin.com/in/skoch91/) - Manufacturing Engineer
 
 
 
