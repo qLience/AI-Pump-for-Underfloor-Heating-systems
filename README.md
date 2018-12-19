@@ -155,7 +155,7 @@ Clone this repo to your local machine using `git clone https://github.com/qLienc
     Note startup requires Tmix which have to be above 20
     
 ### Environments:
-All simulink models of these environments can be found in `/Simulink_Models`
+All simulink models of these environments can be found in `/Simulink_Models`.
 #### House Environment
 These environments is based on charistica of a normal house.
 * SHTL1 - Simulation environment of a one circuit house environment without dynamic properties of a house
