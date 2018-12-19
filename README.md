@@ -42,7 +42,7 @@ The function of a underfloor heating system is to heat a number of zones to thei
 diagram of a conventional underfloor heating system is shown in Figure 2.1.
 
 <p align="center">
-  <img src="images/environment.svg" alt="@SankeyMATIC Diagram" />
+  <img src="images/environment.svg" height="400" />
 </p>
 <sub><i>hej</a></i></sub>
 
