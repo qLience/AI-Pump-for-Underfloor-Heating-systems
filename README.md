@@ -41,7 +41,7 @@ valves depending on the present test level
 The function of a underfloor heating system is to heat a number of zones to their given reference temperature. A
 diagram of a conventional underfloor heating system is shown in Figure 2.1.
 
-![ScreenShot](/images/00000000.jpg)
+[![INSERT YOUR GRAPHIC HERE](http://i.imgur.com/dt8AUb6.png)]()
 
 
 
