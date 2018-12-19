@@ -165,3 +165,6 @@ This project were a collaboration between Aalborg University and Grundfos.
 * [Sajuran Ganeswarathas](https://www.linkedin.com/in/sganes94/) - Manufacturing Engineer
 * [Simon Bøgh Jensen](https://www.linkedin.com/in/roboticsdk/) - Associate Professor in Robotics
 * [Søren Koch](https://www.linkedin.com/in/skoch91/) - Manufacturing Engineer
+
+## License
+The content of this project itself is licensed under the [Creative Commons Attribution 3.0 Unported license](https://creativecommons.org/licenses/by/3.0/), and the underlying source code used to format and display that content is licensed under the [MIT license](LICENSE.md).
