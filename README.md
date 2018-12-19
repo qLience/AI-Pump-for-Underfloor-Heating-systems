@@ -23,8 +23,6 @@ also be a control platform where it will be possible to add multiple inputs such
 information, sunlight etc. and customise the controller to the client.
 
 
-
-
 ## Table of Contents (Optional)
 - [Project](#project)
 - [Installation](#installation)
@@ -33,14 +31,9 @@ information, sunlight etc. and customise the controller to the client.
 - [License](#license)
 
 
-
-
-
 ## Project
-The AI controls a underfloor heating system where room(s) depending on environment
-needs to be a certain reference room temperature. The agent will minimum have the ability to control the 
-temperature of the water flowing out of the mixing unit and maximum have the ability to control the mixing unit and the on/off
-valves depending on the present test level
+The AI called a agent controls a underfloor heating system where room(s) depending on environment
+needs where a reference room temperature is 22&deg;C.
 
 
 ### Environment
@@ -48,7 +41,7 @@ The function of a underfloor heating system is to heat a number of zones to thei
 diagram of a conventional underfloor heating system is shown in Figure 1.
 
 <p align="center">
-  <img src="images/environment.pdf" height="300" />
+  <img src="images/environment.svg" height="300" />
 </p>
 <sub><i>Figure 1. - Diagram of a four circuit conventional underfloor heating system illustrating four main components</a></i></sub>
 
@@ -56,11 +49,14 @@ Water from a heat source and return water is mixed in the mixing unit to tempera
 A balancing valve controls the static resistance and is preset due to big circuits requires higher flow to the a room. The on/off valve is
 in a conventional control system "on" when a temperature is below the reference temperature and "off" when above the reference temperature.
 
+The agent will minimum have the ability to control the temperature of the water flowing out of the mixing unit and maximum have the ability 
+to control the mixing unit and the on/off valves depending on the test level.
+
+
 
 ### AI
-From the command prompt the user can specify size of input (depending on the chosen environment), hidden, and output layer
-and choose to run with one or two hidden layers. Architecture of the Q-network
-is shown in Figure 2.
+From the command prompt the user can specify which environment he/she wants to control, size of hidden layer(s) and other parameter variables
+specified in [How To Run](#how/to/run). Architecture of the Q-network is shown in Figure 2.
 
 <p align="center">
   <img src="images/deep_with_TL.svg" height="500" />
@@ -76,6 +72,7 @@ right in Figure 2. Test Level 1 and 2 therefore have four inputs, Test Level 3 h
 inputs and Test Level 4 has 17 inputs to the hidden layer(s).
 
 
+
 ### Architecture
 All interaction internally and externally regarding the environment (client), server
 (Python) and the deep reinforcement learning framework in Python is shown Figure 3.
@@ -85,19 +82,22 @@ All interaction internally and externally regarding the environment (client), se
 </p>
 <sub><i>Figure 3. - All communication between layer and internally (Inspiration from [hvass](https://www.youtube.com/watch?v=Vz5l886eptw&t=1397s).</a></i></sub>
 
-Here it can be seen that that the environment transmit environment of relevant
-temperatures through a TCP/IP connection to the server in Python. The server transmit
-the environment data to the DRL framework in Python which returns an action from the
-action selector to the environment.
+Here it can be seen that that the environment transmit environment of relevant temperatures through a TCP/IP 
+connection to the server in Python. The server transmit the environment data to the DRL framework in Python which 
+returns an action from the action selector to the environment.
+
 
 
 ### Test
-
+Many test have been conducted but in Figure 4. Test 3 is shown for Test Level 4 where the environment "SHTL4" is used.
+This simulation environment consist of a four circuit house environment with dynamic properties of a house with four different rooms(climate zones)
 <p align="center">
   <img src="images/TL4_Test3.svg" height="300" />
 </p>
 <sub><i>Figure 4. - Left figure displays Simulink data and figure on the right displays training curves tracking the agent score for Test 3 on Test Level 4 with Deep Q-network with Eligibility Trace.</a></i></sub>
 
+In the end Test 3 for Test Level 4 shown in Figure 4. satisfied our requirements for our run. The requirements is that room temperature(s) is allowed a 
+standard deviation of 1 from a given reference temperature which is 22&deg;C in this test, Test 4 for Test Level 4.
 
 ## Installation
 ### For AI
@@ -155,7 +155,7 @@ Clone this repo to your local machine using `git clone https://github.com/qLienc
     Note startup requires Tmix which have to be above 20
     
 ### Environments:
-
+All simulink models of these environments can be found in `/Simulink_Models`
 #### House Environment
 These environments is based on charistica of a normal house.
 * SHTL1 - Simulation environment of a one circuit house environment without dynamic properties of a house
