@@ -54,7 +54,7 @@ and choose to run with one or two hidden layers. Architecture of the Q-network
 is shown in Figure 2.
 
 <p align="center">
-  <img src="images/deep_with_TL.svg" height="300" />
+  <img src="images/deep_with_TL.svg" height="500" />
 </p>
 <sub><i>Figure 2. - Architecture of Q-network.</a></i></sub>
 
@@ -73,7 +73,7 @@ All interaction internally and externally regarding the environment (client), se
 (Python) and the deep reinforcement learning framework in Python is shown Figure 3.
 
 <p align="center">
-  <img src="images/software_achitecture.svg" height="300" />
+  <img src="images/software_achitecture.svg" height="500" />
 </p>
 <sub><i>Figure 3. - All communication between layer and internally.</a></i></sub>
 
