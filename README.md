@@ -23,7 +23,7 @@ also be a control platform where it will be possible to add multiple inputs such
 information, sunlight etc. and customise the controller to the client.
 
 
-## Table of Contents (Optional)
+## Table of Contents
 - [Project](#project)
 - [Installation](#installation)
 - [How To Run](#how/to/run)
