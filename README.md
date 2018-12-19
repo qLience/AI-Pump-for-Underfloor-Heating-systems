@@ -39,21 +39,25 @@ valves depending on the present test level
 
 ### Environment
 The function of a underfloor heating system is to heat a number of zones to their given reference temperature. A
-diagram of a conventional underfloor heating system is shown in Figure 2.1.
+diagram of a conventional underfloor heating system is shown in Figure 1.
 
 <p align="center">
-  <img src="images/environment.svg" height="400" />
+  <img src="images/environment.svg" height="300" />
 </p>
-<sub><i>hej</a></i></sub>
+<sub><i>Figure 1. - Diagram of a four circuit conventional underfloor heating system illustrating four main components</a></i></sub>
 
 
 
 ### AI
 From the command prompt the user can specify size of input (depending on the chosen environment), hidden, and output layer
 and choose to run with one or two hidden layers. Architecture of the Q-network
-is shown in Figure 6.4
+is shown in Figure 2.
 
-Billede Q-network
+<p align="center">
+  <img src="images/deep_with_TL.svg" height="300" />
+</p>
+<sub><i>Figure 2. - Architecture of Q-network.</a></i></sub>
+
 
 Starting from the input layer it can be seen that room temperature T, orientation,
 differential \Delta, valve (open/close) and mixing temperature Tmix is used depending on the
@@ -66,9 +70,12 @@ inputs and Test Level 4 has 17 inputs to the hidden layer(s).
 
 ### Architecture
 All interaction internally and externally regarding the environment (client), server
-(Python) and the deep reinforcement learning framework in Python is shown Figure 6.5.
+(Python) and the deep reinforcement learning framework in Python is shown Figure 3.
 
-Billede architecture
+<p align="center">
+  <img src="images/software_achitecture.svg" height="300" />
+</p>
+<sub><i>Figure 3. - All communication between layer and internally.</a></i></sub>
 
 Here it can be seen that that the environment transmit environment of relevant
 temperatures through a TCP/IP connection to the server in Python. The server transmit
@@ -76,7 +83,12 @@ the environment data to the DRL framework in Python which returns an action from
 action selector to the environment.
 
 
+### Test
 
+<p align="center">
+  <img src="images/TL4_Test3.svg" height="300" />
+</p>
+<sub><i>Figure 4. - Left figure displays Simulink data and figure on the right displays training curves tracking the agent score for Test 3 on Test Level 4 with Deep Q-network with Eligibility Trace.</a></i></sub>
 
 
 ## Installation
