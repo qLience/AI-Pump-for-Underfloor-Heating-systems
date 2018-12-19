@@ -28,8 +28,6 @@ information, sunlight etc. and customise the controller to the client.
 - [Installation](#installation)
 - [How To Run](#how/to/run)
 - [Team](#team)
-- [FAQ](#faq)
-- [Support](#support)
 - [License](#license)
 
 ## Project
@@ -44,9 +42,6 @@ The function of a underfloor heating system is to heat a number of zones to thei
 diagram of a conventional underfloor heating system is shown in Figure 2.1.
 
 Billede af conventional
-
-
-
 
 
 
@@ -82,8 +77,7 @@ action selector to the environment.
 
 
 ## Installation
-### Packages
-#### For AI
+### For AI
 * Python v3.5
 * PyTorch v0.3.1 on CPU
 * TensorFlow v0.12 on CPU
@@ -94,7 +88,7 @@ pytorch can be installed by using < `conda install -c peterjc123 pytorch` > with
 
 tensorflow for windows can be installed by using < `pip install tensorflow` > or < `pip install https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-0.12.0rc0-cp35-cp35m-win_amd64.whl` >
 
-#### For Simulation Models for House Environments
+### For Simulation Models for House Environments
 * Matlab R2017b
 * Simulink 
 
