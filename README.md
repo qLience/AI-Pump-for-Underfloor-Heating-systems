@@ -44,7 +44,7 @@ diagram of a conventional underfloor heating system is shown in Figure 2.1.
 <p align="center">
   <img src="images/environment.svg" alt="@SankeyMATIC Diagram" />
 </p>
-<sub><i>Diagram created using <a href="http://sankeymatic.com/" title="SankeyMATIC (BETA): A Sankey diagram builder for everyone">@SankeyMATIC</a></i></sub>
+<sub><i>hej</a></i></sub>
 
 
 
