@@ -33,7 +33,9 @@ information, sunlight etc. and customise the controller to the client.
 
 ## Project
 The AI called a agent controls a underfloor heating system where room(s) depending on environment
-needs where a reference room temperature is 22&deg;C.
+needs where a reference room temperature is 22&deg;C. The agent is rewarded by getting closer to the reference
+room temperature, being close to reference room temperature and having a low mixing temperature meaning here is
+lower usage of energy.
 
 
 ### Environment
