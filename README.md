@@ -16,12 +16,14 @@ hysteria control. This can result in oscillating room temperatures. Furthermore,
 room temperatures often only controlled by the flow and not by both the flow and the
 temperature water flowing through the hoses.
 
-
 The benefit of using reinforcement learning would be that extensive knowledge about the
 building would not be needed, because the idea is that the controller would learn the ideal
 behaviour to avoid oscillating room temperatures. Furthermore will reinforcement learning
 also be a control platform where it will be possible to add multiple inputs such as weather
 information, sunlight etc. and customise the controller to the client.
+
+
+
 
 ## Table of Contents (Optional)
 - [Project](#project)
@@ -29,6 +31,10 @@ information, sunlight etc. and customise the controller to the client.
 - [How To Run](#how/to/run)
 - [Team](#team)
 - [License](#license)
+
+
+
+
 
 ## Project
 The AI controls a underfloor heating system where room(s) depending on environment
@@ -46,6 +52,9 @@ diagram of a conventional underfloor heating system is shown in Figure 1.
 </p>
 <sub><i>Figure 1. - Diagram of a four circuit conventional underfloor heating system illustrating four main components</a></i></sub>
 
+Water from a heat source and return water is mixed in the mixing unit to temperature which is pumped through a pump to a number of circuits.
+A balancing valve controls the static resistance and is preset due to big circuits requires higher flow to the a room. The on/off valve is
+in a conventional control system "on" when a temperature is below the reference temperature and "off" when above the reference temperature.
 
 
 ### AI
@@ -58,13 +67,12 @@ is shown in Figure 2.
 </p>
 <sub><i>Figure 2. - Architecture of Q-network.</a></i></sub>
 
-
 Starting from the input layer it can be seen that room temperature T, orientation,
 differential \Delta, valve (open/close) and mixing temperature Tmix is used depending on the
 test level. All inputs are standardised before inputting them to the q-network to insure faster convergence.
 Test Level 1 and 2 only control Tmix and therefore do not have any valve information nor
 multiple room temperatures, orientation, and differential as indicated in the black box top
-right in Figure 6.4. Test Level 1 and 2 therefore have four inputs, Test Level 3 has nine
+right in Figure 2. Test Level 1 and 2 therefore have four inputs, Test Level 3 has nine
 inputs and Test Level 4 has 17 inputs to the hidden layer(s).
 
 
@@ -75,7 +83,7 @@ All interaction internally and externally regarding the environment (client), se
 <p align="center">
   <img src="images/software_achitecture.svg" height="500" />
 </p>
-<sub><i>Figure 3. - All communication between layer and internally.</a></i></sub>
+<sub><i>Figure 3. - All communication between layer and internally (Inspiration from [hvass](https://www.youtube.com/watch?v=Vz5l886eptw&t=1397s).</a></i></sub>
 
 Here it can be seen that that the environment transmit environment of relevant
 temperatures through a TCP/IP connection to the server in Python. The server transmit
