@@ -109,7 +109,19 @@ This simulation environment consist of a four circuit house environment with dyn
 <sub><i>Figure 4. - Left figure displays Simulink data and figure on the right displays training curves tracking the agent score for Test 3 on Test Level 4 with Deep Q-network with Eligibility Trace.</a></i></sub>
 
 In the end Test 3 for Test Level 4 shown in Figure 4. satisfied our requirements for our run. The requirements is that room temperature(s) is allowed a 
-standard deviation of 1 from a given reference temperature which is 22&deg;C in this test, Test 4 for Test Level 4.
+standard deviation of 1 from a given reference temperature which is 22&deg;C in this test, Test 4 for Test Level 4. Test results for Test 3 and all three test run 
+is shown in Table 1.
+
+<p align="center">
+  <img src="images/dataHandling_TL4.svg" height="150" />
+</p>
+<sub><i>Table 1. - Calculated mean and standard deviation from results from Test Level 4 tests in section
+7.6 with Deep Q-network with Eligibility Trace. Elements are grey coloured elements
+if room temperature satisfied requirements. Mean and standard deviation is calculated from the
+period 7*10^7 107 to 8*10^7 seconds.</a></i></sub>
+
+
+
 
 ## Installation
 ### For AI
