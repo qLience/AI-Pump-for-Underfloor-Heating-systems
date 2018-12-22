@@ -113,7 +113,7 @@ standard deviation of 1 from a given reference temperature which is 22&deg;C in 
 is shown in Table 1.
 
 <p align="center">
-  <img src="images/dataHandling_TL4.svg" height="75" />
+  <img src="images/dataHandling_TL4.svg" height="100" />
 </p>
 <sub><i>Table 1. - Calculated mean and standard deviation from results from Test Level 4 tests in section
 7.6 with Deep Q-network with Eligibility Trace. Elements are grey coloured elements
