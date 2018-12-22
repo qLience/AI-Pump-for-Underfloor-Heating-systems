@@ -73,6 +73,16 @@ multiple room temperatures, orientation, and differential as indicated in the bl
 right in Figure 2. Test Level 1 and 2 therefore have four inputs, Test Level 3 has nine
 inputs and Test Level 4 has 17 inputs to the hidden layer(s).
 
+The chose to have reinforcement learning with Q-network because it is not feasible to store every state action value
+Q seperately in a Q-table with a large number of state-action pairs which were the traditional method. Instead we just update update and store
+our weights in one Q-network. The chose three different algoritms using Deep Q-networks with experience replay.
+The first is a Deep Q-Network denoted DQN, second a DQN with a LSTM (Long Short-Term Memory) layer denoted DQN+LSTM and third a DQN with eligibility
+trace denoted DQN+ET. The LSTM layer was chosen due to its capability to detect whether a value (temperature) is decreasing or 
+increasing since the last time step due to its recurrent capability. The idea behind the choice of choosing eligibility trace 
+is that the agent will be able to make a series of actions for n time steps and then evaluate and reward whether these set of actions were the best.
+This capability with eligibility trace is good because we are dealing with a system with a slow response (approximately 6 hours) meaning that from
+when we try to heat the room then there will go 6 hours until it can be detected because we are dealing with underfloor heating systems with slow thermo dynamics.
+
 
 
 ### Architecture
