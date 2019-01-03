@@ -52,7 +52,7 @@ A balancing valve controls the static resistance and is preset due to big circui
 in a conventional control system "on" when a temperature is below the reference temperature and "off" when above the reference temperature.
 
 The agent will minimum have the ability to control the temperature of the water flowing out of the mixing unit and maximum have the ability 
-to control the mixing unit and the on/off valves depending on the test level.
+to control the mixing unit and the on/off valves depending on the test level. These test levels are specified in [Environments:](#environments:)
 
 
 
