@@ -211,7 +211,7 @@ This project were a collaboration between Aalborg University and Grundfos.
 * [Carsten Skovmose Kallesø](https://www.linkedin.com/in/carsten-skovmose-kalles%C3%B8e-97b5865/) - Control Engineer & Industry Professor
 * [Christian Blad](https://www.linkedin.com/in/christian-blad-98b18b119/) - Ph.D in Control Engineering
 * [Sajuran Ganeswarathas](https://www.linkedin.com/in/sganes94/) - Manufacturing Engineer
-* [Simon Bøgh Jensen](https://www.linkedin.com/in/roboticsdk/) - Associate Professor in Robotics
+* [Simon Bøgh](https://www.linkedin.com/in/roboticsdk/) - Associate Professor in Robotics
 * [Søren Koch](https://www.linkedin.com/in/skoch91/) - Manufacturing Engineer
 
 ## License
