@@ -26,7 +26,7 @@ information, sunlight etc. and customise the controller to the client.
 ## Table of Contents
 - [Project](#project)
 - [Installation](#installation)
-- [How To Run](#how/to/run)
+- [How To Run](#how-to-run)
 - [Team](#team)
 - [License](#license)
 
@@ -58,7 +58,7 @@ to control the mixing unit and the on/off valves depending on the test level.
 
 ### AI
 From the command prompt the user can specify which environment he/she wants to control, size of hidden layer(s) and other parameter variables
-specified in [How To Run](#how/to/run). Architecture of the Q-network is shown in Figure 2.
+specified in [How To Run](#how-to-run). Architecture of the Q-network is shown in Figure 2.
 
 <p align="center">
   <img src="images/deep_with_TL.svg" height="500" />
