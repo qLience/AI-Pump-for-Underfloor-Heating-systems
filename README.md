@@ -206,7 +206,7 @@ no connection to TCP/IP server established by python due to duration of building
 
 
 ## Team
-This project were a collaboration between Aalborg University and Grundfos.
+This project were executed at Aalborg University.
 
 * [Carsten Skovmose Kallesø](https://www.linkedin.com/in/carsten-skovmose-kalles%C3%B8e-97b5865/) - Control Engineer & Industry Professor
 * [Christian Blad](https://www.linkedin.com/in/christian-blad-98b18b119/) - Ph.D in Control Engineering
