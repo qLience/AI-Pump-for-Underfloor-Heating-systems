@@ -1,4 +1,4 @@
-# AI for Underfloor Heating Systems (readme in progress!)
+# AI for Underfloor Heating Systems
 
 There are several different heating and cooling system to accommodate clime control in
 houses, one of those are the underfloor heating system. The underfloor heating system is
@@ -208,7 +208,7 @@ no connection to TCP/IP server established by python due to duration of building
 ## Team
 This project were executed at Aalborg University.
 
-* [Carsten Skovmose Kallesø](https://www.linkedin.com/in/carsten-skovmose-kalles%C3%B8e-97b5865/) - Control Engineer & Industry Professor
+* [Carsten Skovmose Kallesøe](https://www.linkedin.com/in/carsten-skovmose-kalles%C3%B8e-97b5865/) - Control Engineer & Industry Professor
 * [Christian Blad](https://www.linkedin.com/in/christian-blad-98b18b119/) - Ph.D in Control Engineering
 * [Sajuran Ganeswarathas](https://www.linkedin.com/in/sganes94/) - Manufacturing Engineer
 * [Simon Bøgh](https://www.linkedin.com/in/roboticsdk/) - Associate Professor in Robotics
