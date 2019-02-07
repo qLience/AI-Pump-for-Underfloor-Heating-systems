@@ -2,7 +2,7 @@
 
 The following material is supplement material for the article:
 "CONTROL OF HVAC-SYSTEMS WITH SLOW THERMODYNAMICS USING REINFORCEMENT LEARNING"
-from the conference FAIM (Flexible Automation and Intelligent Manufacturing).
+from the 2019 FAIM (Flexible Automation and Intelligent Manufacturing) conference.
 
 There are several different heating and cooling system to accommodate clime control in
 houses, one of those are the underfloor heating system. The underfloor heating system is
