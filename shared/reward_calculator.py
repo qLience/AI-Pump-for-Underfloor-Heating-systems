@@ -4,7 +4,7 @@
 import numpy as np
 
 # Environments
-SHTL12, SHTL3, SHTL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4 = ("shtl12", "shtl3", "shtl4", "setl2", "setl3", "setl4", "etl2", "etl3", "etl4")
+SHTL1, SHTL2, SHTL3, SETL1, SETL2, SETL3, ETL1, ETL2, ETL3 = ("shtl1", "shtl2", "shtl3", "setl1", "setl2", "setl3", "etl1", "etl2", "etl3")
 
 
 class RewardCalculator:
@@ -53,7 +53,7 @@ class RewardCalculator:
         print('distance4 is ', distance4)
         
         # Define room and Tmix temperature limits to environments
-        if self.env_decider == SHTL12 or self.env_decider == SHTL3 or self.env_decider == SHTL4:
+        if self.env_decider == SHTL1 or self.env_decider == SHTL2 or self.env_decider == SHTL3:
             Room_LL = 15.1 # lower limit
             Room_UL = 29.9 # Upper limit
             Tmix_LL = 15.1 # Lower limit
@@ -64,8 +64,8 @@ class RewardCalculator:
             Tmix_LL = 24.1 # Lower limit
             Tmix_UL = 59.9 # Upper limit
         
-        # Valve in circuit one is always true when running TL12 and ETL2
-        if self.env_decider == SHTL12 or self.env_decider == ETL2  or self.env_decider == SETL2:
+        # Valve in circuit one is always true when running TL1 and ETL1
+        if self.env_decider == SHTL1 or self.env_decider == ETL1  or self.env_decider == SETL1:
             Cn_valves.C1_valve = True
         
         
@@ -146,11 +146,11 @@ class RewardCalculator:
         self.last_distance4 = distance4
         
         # Sum rewards and divide by number of circuits
-        if self.env_decider == SHTL12 or self.env_decider == ETL2 or self.env_decider == SETL2:
+        if self.env_decider == SHTL1 or self.env_decider == ETL1 or self.env_decider == SETL1:
             last_reward = (last_reward1) / 1
-        elif self.env_decider == SHTL3 or self.env_decider == ETL3 or self.env_decider == SETL3:
+        elif self.env_decider == SHTL2 or self.env_decider == ETL2 or self.env_decider == SETL2:
             last_reward = (last_reward1 + last_reward2) / 2
-        elif self.env_decider == SHTL4 or self.env_decider == ETL4  or self.env_decider == SETL4:
+        elif self.env_decider == SHTL3 or self.env_decider == ETL3  or self.env_decider == SETL3:
             last_reward = (last_reward1 + last_reward2 + last_reward3 + last_reward4) / 4
 
         

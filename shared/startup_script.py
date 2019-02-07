@@ -6,7 +6,7 @@
 import time
 
 # Environments
-SHTL12, SHTL3, SHTL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4 = ("shtl12", "shtl3", "shtl4", "setl2", "setl3", "setl4", "etl2", "etl3", "etl4")
+SHTL1, SHTL2, SHTL3, SETL1, SETL2, SETL3, ETL1, ETL2, ETL3 = ("shtl1", "shtl2", "shtl3", "setl1", "setl2", "setl3", "etl1", "etl2", "etl3")
 
 
 class StartUp():
@@ -49,14 +49,14 @@ class StartUp():
                
                
             # Sum rewards and divide by number of circuits
-            if self.env_decider == SHTL12 or self.env_decider == SETL2 or self.env_decider == ETL2:
+            if self.env_decider == SHTL1 or self.env_decider == SETL1 or self.env_decider == ETL1:
                 # Close valves depending on they have achieved reference temperatures
                 if self.T1 > self.params.goalT1:
                     self.WhileHolder = False # Continue to DRL framework
                 else:
                     self.env.sendAction(self.startTmix) # Satisfy timeout in simulink by keep sending data
 
-            elif self.env_decider == SHTL3 or self.env_decider == SETL3 or self.env_decider == ETL3:
+            elif self.env_decider == SHTL2 or self.env_decider == SETL2 or self.env_decider == ETL2:
                 # Close valves depending on they have achieved reference temperatures
                 if self.T1 > self.params.goalT1 and self.T2 > self.params.goalT2:
                     self.env.sendAction(4) # Open both valves
@@ -70,7 +70,7 @@ class StartUp():
                 else:
                     self.env.sendAction(self.startTmix) # Satisfy timeout in simulink by keep sending data
                     
-            elif self.env_decider == SHTL4 or self.env_decider == SETL4 or self.env_decider == ETL4:
+            elif self.env_decider == SHTL3 or self.env_decider == SETL3 or self.env_decider == ETL3:
                 # Close valves depending on they have achieved reference temperatures
                 if self.T1 > self.params.goalT1 and self.T2 > self.params.goalT2 and self.T3 > self.params.goalT3 and self.T4 > self.params.goalT4:
                     self.env.sendAction(4) # Open all valves

@@ -4,7 +4,7 @@
 
 
 # Environments
-SHTL12, SHTL3, SHTL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4 = ("shtl12", "shtl3", "shtl4", "setl2", "setl3", "setl4", "etl2", "etl3", "etl4")
+SHTL1, SHTL2, SHTL3, SETL1, SETL2, SETL3, ETL1, ETL2, ETL3 = ("shtl1", "shtl2", "shtl3", "setl1", "setl2", "setl3", "etl1", "etl2", "etl3")
 
 
 class AiInputProvider:
@@ -89,17 +89,17 @@ class AiInputProvider:
         diff4 = abs(T4 - self.last_T4)
         
         # Standadize mixing temperature to environment
-        if self.env_decider == SHTL12 or self.env_decider == SHTL3 or self.env_decider == SHTL4:
+        if self.env_decider == SHTL1 or self.env_decider == SHTL2 or self.env_decider == SHTL3:
             Tmix_std = (Tmix - 15)/30
         else:
             Tmix_std = (Tmix - 15)/45
         
         # Compress state vector to specific environment
-        if self.env_decider == SHTL12 or self.env_decider == SETL2 or self.env_decider == ETL2:
+        if self.env_decider == SHTL1 or self.env_decider == SETL1 or self.env_decider == ETL1:
             # Compress to state vector
             state =  [T1_std, orientation1_std, diff1_std, Tmix_std]
             
-        elif self.env_decider == SHTL3 or self.env_decider == SETL3 or self.env_decider == ETL3:
+        elif self.env_decider == SHTL2 or self.env_decider == SETL2 or self.env_decider == ETL2:
             # Circuit valves open or close ?
             if action ==  4:
                 self.C1_valve = 1
@@ -116,7 +116,7 @@ class AiInputProvider:
             # Compress to state vector
             state =  [T1_std, orientation1_std, diff1_std, self.C1_valve, T2_std, orientation2_std, diff2_std, self.C2_valve, Tmix_std]
         
-        elif self.env_decider == SHTL4 or self.env_decider == SETL4 or self.env_decider == ETL4:
+        elif self.env_decider == SHTL3 or self.env_decider == SETL3 or self.env_decider == ETL3:
             # Circuit valves open or close ?
             if action ==  4:
                 self.C1_valve = 1

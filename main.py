@@ -24,7 +24,7 @@ SOFTMAX, EPS = ("softmax","eps")
 TORCH_DQN, TORCH_DQNLSTM, TORCH_DQNET, TF_DQNET = ("torch_dqn","torch_dqnlstm", "torch_dqnet", "tf_dqnet")
 
 # Environments
-SHTL12, SHTL3, SHTL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4 = ("shtl12", "shtl3", "shtl4", "setl2", "setl3", "setl4", "etl2", "etl3", "etl4")
+SHTL1, SHTL2, SHTL3, SETL1, SETL2, SETL3, ETL1, ETL2, ETL3 = ("shtl1", "shtl2", "shtl3", "setl1", "setl2", "setl3", "etl1", "etl2", "etl3")
 
 # Hidden layers options
 ONE, TWO = ("1", "2")
@@ -57,7 +57,7 @@ parser.add_argument('-Tmix', type=int, help='Start mixing temperature is require
 # Required
 requiredNamed = parser.add_argument_group('required arguments')
 requiredNamed.add_argument('-model', help='Selection of deep reinforcement learning model. torch = pytorch framework and tf = tensorflow framework. dqn = deep q-network, dqnlstm = dqn + long short term memory layer, dqnet = dqn + eligibility trace', choices=[TORCH_DQN, TORCH_DQNLSTM, TORCH_DQNET, TF_DQNET], required=True)
-requiredNamed.add_argument('-env', help='Environment agent is interacting with. S=Simulation model, H=House, E=Experimental setup, T=Test, L=Level, N=level grade, SHTL for simulation of house and everything with E is regarding experimental setup', choices=[SHTL12, SHTL3, SHTL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4], required=True)
+requiredNamed.add_argument('-env', help='Environment agent is interacting with. S=Simulation model, H=House, E=Experimental setup, T=Test, L=Level, N=level grade, SHTL for simulation of house and everything with E is regarding experimental setup', choices=[SHTL1, SHTL2, SHTL3, SETL1, SETL2, SETL3, ETL1, ETL2, ETL3], required=True)
 args = parser.parse_args()
     
 if args.startup and args.Tmix is None:
@@ -128,13 +128,13 @@ else:
 # Environment decider
 env_decider = args.env
 # Choose input and output size of Qnetwork
-if env_decider == SHTL12 or env_decider == SETL2 or env_decider == ETL2:
+if env_decider == SHTL1 or env_decider == SETL1 or env_decider == ETL1:
     params.input_size = 4
     params.action_size = 3
-elif env_decider == SHTL3 or env_decider == SETL3 or env_decider == ETL3:
+elif env_decider == SHTL2 or env_decider == SETL2 or env_decider == ETL2:
     params.input_size = 9
     params.action_size = 7
-elif env_decider == SHTL4 or env_decider == SETL4 or env_decider == ETL4:
+elif env_decider == SHTL3 or env_decider == SETL3 or env_decider == ETL3:
     params.input_size = 17
     params.action_size = 19
 
@@ -219,7 +219,7 @@ elif args.model == TORCH_DQNET:
         eligibility_memory.load_experience(os.path.abspath(SAVES_EXPERIENCE), args.swe)
 
 # Have to send the first communication to Simulink in order to start the simulation
-if env_decider == SHTL12 or env_decider == SHTL3 or env_decider == SHTL4 or env_decider == SETL2 or env_decider == SETL3 or env_decider == SETL4:
+if env_decider == SHTL1 or env_decider == SHTL2 or env_decider == SHTL3 or env_decider == SETL1 or env_decider == SETL2 or env_decider == SETL3:
     env.sendAction(0)
     save_iterator = 500 # Save every 500 times to have less computational with simulink
 else:

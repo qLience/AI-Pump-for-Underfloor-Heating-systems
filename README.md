@@ -189,11 +189,17 @@ These environments is based on charistica of a normal house.
 * SHTL2 - Simulation environment of a two circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1 and 2)
 * SHTL3 - Simulation environment of a four circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1, 2, 3 and 4)
 
-#### Experimental Setup of House
+#### Simulation environment of Experimental Setup of House
 These environment is based on a parameter estimation of a experimental setup.
 * SETL1 - Simulation environment of a one circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3)
 * SETL2 - Simulation environment of a two circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3 and 4)
 * SETL3 - Simulation environment of a four circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 1,2,3 and 4) (Not available  yet!)
+    
+#### Experimental Setup of House
+These environment is based on a parameter estimation of a experimental setup.
+* ETL1 - Experimental Setup environment of a one circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3)
+* ETL2 - Experimental Setup environment of a two circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3 and 4)
+* ETL3 - Experimental Setup environment of a four circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 1,2,3 and 4) (Not available  yet!)
     
 ### Example:   
    
