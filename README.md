@@ -73,21 +73,21 @@ specified in [How To Run](#how-to-run). Architecture of the Q-network is shown i
 Starting from the input layer it can be seen that room temperature T, orientation,
 differential \Delta, valve (open/close) and mixing temperature Tmix is used depending on the
 test level. All inputs are standardised before inputting them to the q-network to insure faster convergence.
-Test Level 1 and 2 only control Tmix and therefore do not have any valve information nor
+The agent in Test Level 1 only control Tmix and therefore do not have any valve information nor
 multiple room temperatures, orientation, and differential as indicated in the black box top
-right in Figure 2. Test Level 1 and 2 therefore have four inputs, Test Level 3 has nine
-inputs and Test Level 4 has 17 inputs to the hidden layer(s).
+right in Figure 2. Test Level 1 therefore have four inputs, Test Level 2 has nine
+inputs and Test Level 3 has 17 inputs to the hidden layer(s).
 
 The chose to have reinforcement learning with Q-network because it is not feasible to store every state action value
 Q seperately in a Q-table with a large number of state-action pairs which were the traditional method. Instead we just update update and store
-our weights in one Q-network. The chose three different algoritms using Deep Q-networks with experience replay.
-The first is a Deep Q-Network denoted DQN, second a DQN with a LSTM (Long Short-Term Memory) layer denoted DQN+LSTM and third a DQN with eligibility
-trace denoted DQN+ET. The LSTM layer was chosen due to its capability to detect whether a value (temperature) is decreasing or 
-increasing since the last time step due to its recurrent capability. The idea behind the choice of choosing eligibility trace 
+our weights in one Q-network. The research group chose two different algoritms using Deep Q-networks with experience replay.
+The first is a Deep Q-Network denoted DQN, second a DQN with eligibility
+trace denoted DQN+ET. The idea behind the choice of choosing eligibility trace 
 is that the agent will be able to make a series of actions for n time steps and then evaluate and reward whether these set of actions were the best.
 This capability with eligibility trace is good because we are dealing with a system with a slow response (approximately 6 hours) meaning that from
 when we try to heat the room then there will go 6 hours until it can be detected because we are dealing with underfloor heating systems with slow thermo dynamics.
 
+NOTE: Only DQN and DQN+ET within the PyTorch framework results is displayed in the referred article but different algorithms in differnt frameworks are avaible.
 
 
 ### Architecture
@@ -106,21 +106,21 @@ returns an action from the action selector to the environment.
 
 
 ### Test
-Many test have been conducted but in Figure 4. Test 3 is shown for Test Level 4 where the environment "SHTL4" is used.
+Many test have been conducted but in Figure 4. Test 3 is shown for Test Level 3 where the environment "SHTL4" is used.
 This simulation environment consist of a four circuit house environment with dynamic properties of a house with four different rooms(climate zones)
 <p align="center">
   <img src="images/TL4_Test3.svg" height="300" />
 </p>
-<sub><i>Figure 4. - Left figure displays Simulink data and figure on the right displays training curves tracking the agent score for Test 3 on Test Level 4 with Deep Q-network with Eligibility Trace in PyTorch.</a></i></sub>
+<sub><i>Figure 4. - Left figure displays Simulink data and figure on the right displays training curves tracking the agent score for Test 3 on Test Level 3 with Deep Q-network with Eligibility Trace in PyTorch.</a></i></sub>
 
-In the end Test 3 for Test Level 4 shown in Figure 4. satisfied our requirements for our run. The requirements is that room temperature(s) is allowed a 
-standard deviation of 1 from a given reference temperature which is 22&deg;C in this test, Test 4 for Test Level 4. Test results for Test 3 and all three test run 
+In the end Test 3 for Test Level 3 shown in Figure 4. satisfied our requirements for our run. The requirements is that room temperature(s) is allowed a 
+standard deviation of 1 from a given reference temperature which is 22&deg;C in this test, Test 4 for Test Level 3. Test results for Test 3 and all three test run 
 is shown in Table 1.
 
 <p align="center">
   <img src="images/dataHandling_TL4.svg" height="100" />
 </p>
-<sub><i>Table 1. - Calculated mean and standard deviation from results from Test Level 4 tests with Deep Q-network with Eligibility Trace in PyTorch. Elements are grey coloured 
+<sub><i>Table 1. - Calculated mean and standard deviation from results from Test Level 3 tests with Deep Q-network with Eligibility Trace in PyTorch. Elements are grey coloured 
 elements if room temperature satisfied requirements. Mean and standard deviation is calculated from the period 7*10^7 107 to 8*10^7 seconds.</a></i></sub>
 
 
@@ -177,7 +177,7 @@ Clone this repo to your local machine using `git clone https://github.com/qLienc
   
 ### Required arguments:  
     -model  -- 'torch_dqn, torch_dqnlstm, torch_dqnet is in pytorch and tf_dqnet is in tensorflow (dqn = deep q-network, eli = eligibility_trace)', choices=[TORCH_DQN, TORCH_DQNLSTM, TORCH_DQNET, TF_DQNET], required=True)
-    -env    -- 'S=Simulation, E=Experiment, T=Test, L=Level, N=level grade, TL for normal house and everything with E is regarding experimental setup ', choices=[TL12, TL3, TL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4], required=True)
+    -env    -- 'S=Simulation, E=Experiment, T=Test, L=Level, N=level grade, TL for normal house and everything with E is regarding experimental setup ', choices=[SHTL12, SHTL3, SHTL4, SETL2, SETL3, SETL4, ETL2, ETL3, ETL4], required=True)
 
     Note startup requires Tmix which have to be above 20
     
@@ -185,23 +185,22 @@ Clone this repo to your local machine using `git clone https://github.com/qLienc
 All simulink models of these environments can be found in `/Simulink_Models`.
 #### House Environment
 These environments is based on charistica of a normal house.
-* SHTL1 - Simulation environment of a one circuit house environment without dynamic properties of a house
-* SHTL2 - Simulation environment of a one circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1)
-* SHTL3 - Simulation environment of a two circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1 and 2)
-* SHTL4 - Simulation environment of a four circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1, 2, 3 and 4)
+* SHTL1 - Simulation environment of a one circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1)
+* SHTL2 - Simulation environment of a two circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1 and 2)
+* SHTL3 - Simulation environment of a four circuit house environment with dynamic properties of a house (Dynamic properties of Circuit 1, 2, 3 and 4)
 
 #### Experimental Setup of House
 These environment is based on a parameter estimation of a experimental setup.
-* SETL2 - Simulation environment of a one circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3)
-* SETL3 - Simulation environment of a two circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3 and 4)
-* SETL4 - Simulation environment of a four circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 1,2,3 and 4) (Not available  yet!)
+* SETL1 - Simulation environment of a one circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3)
+* SETL2 - Simulation environment of a two circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 3 and 4)
+* SETL3 - Simulation environment of a four circuit experimental setup environment with dynamic properties of a experimental setup (Circuit 1,2,3 and 4) (Not available  yet!)
     
 ### Example:   
    
 Below the user specific specifies the user wants tau = 20, and model should be DQN from pytorch with simulation environment model from Test Level 3 of house environment. 
 
 Running source code:
-`python main.py -tau 20 -model torch_dqn -env setl3`
+`python main.py -tau 20 -model torch_dqn -env shtl3`
 
 TCP connect receiver and send port by running Simulink model <XXTLX_TestLevel_X_MODEL.slx>. (notice first time starting Simulation can result in 
 no connection to TCP/IP server established by python due to duration of building model in Simulink, Simply just run the script again and start the simulation again.
