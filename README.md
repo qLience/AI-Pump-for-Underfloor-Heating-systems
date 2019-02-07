@@ -31,8 +31,8 @@ information, sunlight etc. and customise the controller to the client.
 - [Project](#project)
 - [Installation](#installation)
 - [How To Run](#how-to-run)
-- [Team](#team)
 - [Issue That Could Occur](#issue-that-could-occur)
+- [Team](#team)
 - [License](#license)
 
 
@@ -212,6 +212,12 @@ Running source code:
 TCP connect receiver and send port by running Simulink model <XXTLX_TestLevel_X_MODEL.slx>. (notice first time starting Simulation can result in 
 no connection to TCP/IP server established by python due to duration of building model in Simulink, Simply just run the script again and start the simulation again.
 
+## Issue That Could Occur
+An issue that could occur depending on which PyTorch version you are using:
+
+`TypeError: multinomial() missing 1 required positional arguments: "num_samples"`
+
+Simply change `multinomial()` in the refered line with the argument as follows: `multinomial(num_samples=1)`
 
 ## Team
 This project were executed at Aalborg University.
@@ -221,13 +227,6 @@ This project were executed at Aalborg University.
 * [Sajuran Ganeswarathas](https://www.linkedin.com/in/sganes94/) - Manufacturing Engineer
 * [Simon Bøgh](https://www.linkedin.com/in/roboticsdk/) - Associate Professor in Robotics
 * [Søren Koch](https://www.linkedin.com/in/skoch91/) - Manufacturing Engineer
-
-## Issue That Could Occur
-An issue that could occur depending on which PyTorch version you are using:
-
-`TypeError: multinomial() missing 1 required positional arguments: "num_samples"`
-
-Simply change `multinomial()` in the refered line with the argument as follows: `multinomial(num_samples=1)`
 
 ## License
 The content of this project itself is licensed under the [Creative Commons Attribution 3.0 Unported license](https://creativecommons.org/licenses/by/3.0/), and the underlying source code used to format and display that content is licensed under the [MIT license](LICENSE.md).
